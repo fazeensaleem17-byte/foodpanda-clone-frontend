@@ -1,0 +1,128 @@
+@import 'tailwindcss';
+
+/* Brand palette (pink / white food-delivery theme) and typography */
+@theme {
+  --color-brand-50: #fdf2f7;
+  --color-brand-100: #fce7f1;
+  --color-brand-200: #fbcfe4;
+  --color-brand-300: #f9a8cd;
+  --color-brand-400: #f15a9b;
+  --color-brand-500: #e21b70;
+  --color-brand-600: #c8155f;
+  --color-brand-700: #a3124e;
+  --color-brand-800: #861444;
+  --color-brand-900: #70153c;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Poppins', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.06);
+  --shadow-card-hover: 0 12px 24px -8px rgb(16 24 40 / 0.14), 0 4px 8px -4px rgb(16 24 40 / 0.06);
+
+  --animate-shimmer: shimmer 1.4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.35s ease-out both;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -400px 0;
+    }
+    100% {
+      background-position: 400px 0;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 font-sans text-gray-700 antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-gray-900;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    @apply bg-brand-100 text-brand-800;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Reusable component classes (declared with @utility so they compose via @apply) */
+@utility btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100;
+}
+@utility btn-primary {
+  @apply btn bg-brand-500 text-white shadow-sm hover:bg-brand-600 hover:shadow-md;
+}
+@utility btn-outline {
+  @apply btn border border-brand-200 bg-white text-brand-600 hover:border-brand-500 hover:bg-brand-50;
+}
+@utility btn-ghost {
+  @apply btn text-gray-600 hover:bg-gray-100 hover:text-gray-900;
+}
+@utility btn-danger {
+  @apply btn bg-red-500 text-white hover:bg-red-600;
+}
+@utility btn-danger-outline {
+  @apply btn border border-red-200 bg-white text-red-600 hover:border-red-400 hover:bg-red-50;
+}
+@utility btn-sm {
+  @apply rounded-lg px-3 py-1.5 text-xs;
+}
+@utility input {
+  @apply w-full rounded-xl border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 outline-none transition duration-200 placeholder:text-gray-400 hover:border-gray-300 focus:border-brand-500 focus:ring-4 focus:ring-brand-100;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-medium text-gray-700;
+}
+@utility card {
+  @apply rounded-2xl border border-gray-100 bg-white shadow-card;
+}
+@utility card-hover {
+  @apply transition duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+}
+@utility page {
+  @apply mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8;
+}
+@utility page-title {
+  @apply font-display text-2xl font-bold text-gray-900 sm:text-3xl;
+}
+@utility chip {
+  @apply inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition duration-200;
+}
+@utility chip-active {
+  @apply border-brand-500 bg-brand-500 text-white shadow-sm;
+}
+@utility chip-idle {
+  @apply border-gray-200 bg-white text-gray-600 hover:border-brand-300 hover:text-brand-600;
+}
+@utility skeleton {
+  @apply rounded-lg animate-shimmer;
+  background: linear-gradient(90deg, #f1f2f4 0px, #e7e8eb 120px, #f1f2f4 240px);
+  background-size: 800px 100%;
+}
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
