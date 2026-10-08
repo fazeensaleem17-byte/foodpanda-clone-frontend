@@ -30,7 +30,7 @@ export default function OrderDetailPage() {
     <div className="page max-w-5xl">
       <Link
         to={backTo}
-        className="inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
+        className="inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline max-lg:min-h-10"
       >
         <ChevronLeft className="h-4 w-4" aria-hidden="true" /> {backLabel}
       </Link>

@@ -14,8 +14,9 @@ export default function OrderCard({ order, linkTo, showCustomer = false, showRid
 
   return (
     <div className="card animate-fade-in p-5 transition duration-300 hover:shadow-card-hover">
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
+      {/* Below 640px the header stacks: title + date on top, price + payment underneath */}
+      <div className="flex items-start justify-between gap-3 max-sm:flex-wrap">
+        <div className="min-w-0 max-sm:w-full">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="font-semibold">Order #{order.id}</h3>
             <StatusBadge status={order.status} />
@@ -24,12 +25,12 @@ export default function OrderCard({ order, linkTo, showCustomer = false, showRid
             {order.restaurant_name} · {formatDate(order.created_at)}
           </p>
         </div>
-        <div className="shrink-0 text-right">
+        <div className="shrink-0 text-right max-sm:flex max-sm:w-full max-sm:items-center max-sm:justify-between">
           <p className="whitespace-nowrap font-display text-lg font-semibold text-gray-900">
             {formatPrice(order.total)}
           </p>
           {order.payment && (
-            <p className="mt-0.5 flex items-center justify-end gap-1.5 text-xs text-gray-500">
+            <p className="mt-0.5 flex items-center justify-end gap-1.5 text-xs text-gray-500 max-sm:mt-0">
               <PayIcon className="h-3.5 w-3.5" aria-hidden="true" />
               {order.payment.method === 'card' ? 'Card' : 'Cash'}
               <StatusBadge status={order.payment.status} />

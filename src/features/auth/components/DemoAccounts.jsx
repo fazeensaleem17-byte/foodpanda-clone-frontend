@@ -17,7 +17,7 @@ export default function DemoAccounts({ onPick }) {
             key={u}
             type="button"
             onClick={() => onPick(u)}
-            className="cursor-pointer rounded-full bg-white px-3 py-1 font-medium text-brand-600 ring-1 ring-brand-200 transition hover:bg-brand-50"
+            className="cursor-pointer rounded-full bg-white px-3 py-1 font-medium text-brand-600 ring-1 ring-brand-200 transition hover:bg-brand-50 max-lg:px-4 max-lg:py-3"
           >
             {u}
           </button>

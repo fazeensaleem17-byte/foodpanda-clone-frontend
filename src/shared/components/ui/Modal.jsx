@@ -28,7 +28,12 @@ export default function Modal({ open, onClose, title, children, footer, size = '
       >
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-4">
           <h2 className="text-lg font-semibold">{title}</h2>
-          <button type="button" onClick={onClose} className="btn-ghost rounded-full p-2" aria-label="Close">
+          <button
+            type="button"
+            onClick={onClose}
+            className="btn-ghost rounded-full p-2 max-lg:p-2.5"
+            aria-label="Close"
+          >
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>

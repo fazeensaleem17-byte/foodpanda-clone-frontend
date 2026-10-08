@@ -9,11 +9,11 @@ export default function RiderTabs({ tab, counts, onChange }) {
           key={t.key}
           type="button"
           onClick={() => onChange(t.key)}
-          className={`cursor-pointer rounded-xl px-2 py-2.5 text-sm font-semibold transition ${tab === t.key ? 'bg-brand-500 text-white shadow' : 'text-gray-600 hover:bg-gray-100'}`}
+          className={`cursor-pointer rounded-xl px-2 py-2.5 text-sm font-semibold transition max-lg:min-h-11 ${tab === t.key ? 'bg-brand-500 text-white shadow' : 'text-gray-600 hover:bg-gray-100'}`}
         >
-          <t.icon className="mr-1.5 inline h-4 w-4 align-[-3px]" aria-hidden="true" />
+          <t.icon className="mr-1.5 inline h-4 w-4 align-[-3px] max-sm:hidden" aria-hidden="true" />
           <span className="hidden sm:inline">{t.label}</span>
-          <span className="sm:hidden">{t.label.replace('My ', '')}</span>
+          <span className="capitalize sm:hidden">{t.label.replace('My ', '')}</span>
           {counts[t.key] > 0 && (
             <span
               className={`ml-1.5 rounded-full px-1.5 text-xs ${tab === t.key ? 'bg-white/25' : 'bg-brand-100 text-brand-600'}`}

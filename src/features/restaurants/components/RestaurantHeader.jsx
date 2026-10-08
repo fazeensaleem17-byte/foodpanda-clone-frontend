@@ -23,7 +23,7 @@ export default function RestaurantHeader({ restaurant, isOwnerOfThis }) {
         <div className="absolute left-0 right-0 top-4 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             to="/"
-            className="inline-flex items-center gap-1 rounded-full bg-white/90 px-3 py-1.5 text-sm font-medium text-gray-800 shadow-sm backdrop-blur transition hover:bg-white"
+            className="inline-flex items-center gap-1 rounded-full bg-white/90 px-3 py-1.5 text-sm font-medium text-gray-800 shadow-sm backdrop-blur transition hover:bg-white max-lg:py-2.5"
           >
             <ChevronLeft className="h-4 w-4" aria-hidden="true" /> All restaurants
           </Link>

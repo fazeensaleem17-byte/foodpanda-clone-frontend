@@ -72,34 +72,43 @@ function MenuItemRow({ item, toggling, onToggle, onEdit, onDelete }) {
         </p>
         {item.description && <p className="truncate text-sm text-gray-500">{item.description}</p>}
       </div>
-      <span className="w-24 text-right font-semibold text-gray-900">{formatPrice(item.price)}</span>
-      {/* Availability toggle */}
-      <button
-        type="button"
-        role="switch"
-        aria-checked={item.is_available}
-        aria-label={`${item.name} available`}
-        disabled={toggling}
-        onClick={onToggle}
-        className={`relative h-6 w-11 shrink-0 cursor-pointer rounded-full transition duration-300 disabled:opacity-50 ${item.is_available ? 'bg-emerald-500' : 'bg-gray-300'}`}
-        title={item.is_available ? 'Available: click to hide' : 'Unavailable: click to show'}
-      >
-        <span
-          className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all duration-300 ${item.is_available ? 'left-5.5' : 'left-0.5'}`}
-        />
-      </button>
-      <div className="flex gap-1">
-        <button type="button" onClick={onEdit} className="btn-ghost btn-sm" aria-label={`Edit ${item.name}`}>
-          <Pencil className="h-4 w-4" aria-hidden="true" />
-        </button>
+      {/* On phones the price, toggle and buttons share one right-aligned row.
+          From 640px up, "contents" removes this wrapper and the row is laid out exactly as before. */}
+      <div className="flex items-center gap-4 max-sm:w-full max-sm:justify-end sm:contents">
+        <span className="w-24 text-right font-semibold text-gray-900">{formatPrice(item.price)}</span>
+        {/* Availability toggle */}
         <button
           type="button"
-          onClick={onDelete}
-          className="btn-ghost btn-sm text-red-500 hover:bg-red-50 hover:text-red-600"
-          aria-label={`Delete ${item.name}`}
+          role="switch"
+          aria-checked={item.is_available}
+          aria-label={`${item.name} available`}
+          disabled={toggling}
+          onClick={onToggle}
+          className={`relative h-6 w-11 shrink-0 cursor-pointer rounded-full transition duration-300 disabled:opacity-50 max-lg:before:absolute max-lg:before:-inset-2 max-lg:before:content-[''] ${item.is_available ? 'bg-emerald-500' : 'bg-gray-300'}`}
+          title={item.is_available ? 'Available: click to hide' : 'Unavailable: click to show'}
         >
-          <Trash2 className="h-4 w-4" aria-hidden="true" />
+          <span
+            className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all duration-300 ${item.is_available ? 'left-5.5' : 'left-0.5'}`}
+          />
         </button>
+        <div className="flex gap-1">
+          <button
+            type="button"
+            onClick={onEdit}
+            className="btn-ghost btn-sm"
+            aria-label={`Edit ${item.name}`}
+          >
+            <Pencil className="h-4 w-4" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={onDelete}
+            className="btn-ghost btn-sm text-red-500 hover:bg-red-50 hover:text-red-600"
+            aria-label={`Delete ${item.name}`}
+          >
+            <Trash2 className="h-4 w-4" aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </li>
   )

@@ -9,7 +9,8 @@ export default function QuantityStepper({
   size = 'md',
   removeAtMin = false,
 }) {
-  const box = size === 'sm' ? 'h-8 w-8' : 'h-9 w-9'
+  // Buttons are 40px on touch screens (below 1024px) and keep their compact size on desktop.
+  const box = size === 'sm' ? 'h-8 w-8 max-lg:h-10 max-lg:w-10' : 'h-9 w-9 max-lg:h-10 max-lg:w-10'
   const showBin = removeAtMin && value <= 1
   return (
     <div className="inline-flex items-center rounded-full border border-gray-200 bg-white shadow-sm">

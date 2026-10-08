@@ -31,7 +31,7 @@ export default function Navbar({ user, cartCount = 0, onLogout }) {
   const showCart = role === 'guest' || role === 'customer'
 
   const linkClass = ({ isActive }) =>
-    `flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-medium transition duration-200 ${isActive ? 'bg-brand-50 text-brand-600' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}`
+    `flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-medium transition duration-200 max-lg:min-h-11 ${isActive ? 'bg-brand-50 text-brand-600' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}`
 
   const cartButton = showCart && (
     <Link
@@ -56,7 +56,7 @@ export default function Navbar({ user, cartCount = 0, onLogout }) {
         <Logo />
 
         {/* Desktop navigation */}
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
           {links.map((l) => (
             <NavLink key={l.to + l.label} to={l.to} end={l.end} className={linkClass}>
               <l.icon className="h-4 w-4" aria-hidden="true" />
@@ -65,7 +65,7 @@ export default function Navbar({ user, cartCount = 0, onLogout }) {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           {cartButton}
           {user ? (
             <>
@@ -102,7 +102,7 @@ export default function Navbar({ user, cartCount = 0, onLogout }) {
         </div>
 
         {/* Mobile: cart + menu toggle */}
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="flex items-center gap-1 lg:hidden">
           {cartButton}
           <button
             type="button"
@@ -121,7 +121,7 @@ export default function Navbar({ user, cartCount = 0, onLogout }) {
       </div>
 
       {open && (
-        <div className="animate-fade-in border-t border-gray-100 bg-white px-4 pb-4 pt-2 shadow-lg md:hidden">
+        <div className="animate-fade-in border-t border-gray-100 bg-white px-4 pb-4 pt-2 shadow-lg lg:hidden">
           {user && (
             <div className="mb-2 flex items-center gap-3 rounded-xl bg-gray-50 p-3">
               <Avatar user={user} size="h-10 w-10 text-sm" />
@@ -147,7 +147,7 @@ export default function Navbar({ user, cartCount = 0, onLogout }) {
                 <button
                   type="button"
                   onClick={onLogout}
-                  className="flex items-center gap-2 rounded-xl px-3.5 py-2 text-left text-sm font-medium text-red-600 hover:bg-red-50"
+                  className="flex min-h-11 items-center gap-2 rounded-xl px-3.5 py-2 text-left text-sm font-medium text-red-600 hover:bg-red-50"
                 >
                   <LogOut className="h-4 w-4" aria-hidden="true" />
                   Log out
