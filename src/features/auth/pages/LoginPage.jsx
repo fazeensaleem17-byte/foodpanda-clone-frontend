@@ -1,6 +1,5 @@
 import { Link, Navigate } from 'react-router-dom'
 import AuthLayout from '../components/AuthLayout'
-import DemoAccounts from '../components/DemoAccounts'
 import PasswordInput from '../components/PasswordInput'
 import { useAuth } from '../hooks/useAuth'
 import { useLoginForm } from '../hooks/useLoginForm'
@@ -8,8 +7,7 @@ import { homeForRole } from '../utils'
 
 export default function LoginPage() {
   const { user } = useAuth()
-  const { form, setField, fillDemo, showPassword, toggleShowPassword, error, loading, handleSubmit } =
-    useLoginForm()
+  const { form, setField, showPassword, toggleShowPassword, error, loading, handleSubmit } = useLoginForm()
 
   if (user) return <Navigate to={homeForRole(user.role)} replace />
 
@@ -57,7 +55,6 @@ export default function LoginPage() {
           Create an account
         </Link>
       </p>
-      <DemoAccounts onPick={fillDemo} />
     </AuthLayout>
   )
 }

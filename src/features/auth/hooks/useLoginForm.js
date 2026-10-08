@@ -16,7 +16,6 @@ export function useLoginForm() {
   const [loading, setLoading] = useState(false)
 
   const setField = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }))
-  const fillDemo = (username) => setForm({ username, password: '' })
   const toggleShowPassword = () => setShowPassword((s) => !s)
 
   const handleSubmit = async (e) => {
@@ -37,5 +36,5 @@ export function useLoginForm() {
     }
   }
 
-  return { form, setField, fillDemo, showPassword, toggleShowPassword, error, loading, handleSubmit }
+  return { form, setField, showPassword, toggleShowPassword, error, loading, handleSubmit }
 }

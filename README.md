@@ -60,7 +60,7 @@ foodpanda_frontend/
     │   │   ├── api/          authApi.js
     │   │   ├── context/      AuthContext.js, AuthProvider.jsx
     │   │   ├── hooks/        useAuth, useLoginForm, useRegisterForm, useProfileForm, usePasswordForm
-    │   │   ├── components/   ProtectedRoute, AuthLayout, PasswordInput, RolePicker, DemoAccounts, ProfileForm, PasswordForm
+    │   │   ├── components/   ProtectedRoute, AuthLayout, PasswordInput, RolePicker, ProfileForm, PasswordForm
     │   │   ├── pages/        LoginPage, RegisterPage, ProfilePage
     │   │   ├── constants.js, utils.js
     │   │   └── index.js      # the feature's public API
@@ -249,7 +249,7 @@ These come from the backend's `seed_demo` command. Every password is **`Demo@123
 | `bilal_rider`  | rider    | Has a delivery on the way                                     |
 | `kamran_rider` | rider    | Can accept the order that's being prepared                    |
 
-The backend renamed its demo accounts (they used to be `demo_customer`, `demo_owner` and so on). The quick-fill buttons on the login page still show the old names, so type the usernames above instead.
+Type one of these usernames on the login page.
 
 ---
 
@@ -259,7 +259,7 @@ The backend renamed its demo accounts (they used to be `demo_customer`, `demo_ow
 | ------------------------ | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `/`                      | everyone           | Photo hero with search, popular cuisines (real dish photos), restaurant cards with cover, logo, rating, delivery-time estimate and city; filter by city and open now, sorting, pagination |
 | `/restaurants/:id`       | everyone           | Large cover banner and logo, rating, sticky category tabs with scroll-spy, dish cards with photos, sticky cart sidebar (floating cart bar on mobile), reviews                             |
-| `/login`, `/register`    | guests             | Login with demo quick-fill; register with a role picker (customer, owner or rider)                                                                                                        |
+| `/login`, `/register`    | guests             | Login; register with a role picker (customer, owner or rider)                                                                                                                             |
 | `/cart`                  | guests, customers  | Change quantities, remove items, see the total. The cart holds one restaurant only.                                                                                                       |
 | `/checkout`              | customer           | Pick or add an address, choose cash or card, place the order                                                                                                                              |
 | `/orders`                | customer           | Order history with status filter tabs and badges                                                                                                                                          |
