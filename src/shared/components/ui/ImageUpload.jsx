@@ -51,7 +51,9 @@ export default function ImageUpload({
         {shown ? (
           <>
             <SmartImage src={shown} alt={`${label} preview`} kind={kind} className="h-full w-full" />
-            <div className="absolute inset-0 flex items-center justify-center gap-2 bg-gray-900/50 opacity-0 transition duration-200 group-focus-within:opacity-100 group-hover:opacity-100">
+            {/* Shown on hover / keyboard focus. Touch screens have no hover, so there
+                the buttons are always visible over a lighter overlay. */}
+            <div className="absolute inset-0 flex items-center justify-center gap-2 bg-gray-900/50 opacity-0 transition duration-200 group-focus-within:opacity-100 group-hover:opacity-100 [@media(hover:none)]:bg-gray-900/30 [@media(hover:none)]:opacity-100 max-lg:flex-wrap">
               <button
                 type="button"
                 onClick={() => inputRef.current?.click()}

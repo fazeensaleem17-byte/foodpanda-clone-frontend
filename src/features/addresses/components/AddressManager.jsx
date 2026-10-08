@@ -122,7 +122,7 @@ function AddressRow({ address: a, onEdit, onDelete, onMakeDefault }) {
         <button
           type="button"
           onClick={onMakeDefault}
-          className="ml-12 mt-1 cursor-pointer text-xs font-medium text-brand-600 hover:underline"
+          className="ml-12 mt-1 cursor-pointer text-xs font-medium text-brand-600 hover:underline max-lg:mt-0 max-lg:min-h-10"
         >
           Set as default
         </button>

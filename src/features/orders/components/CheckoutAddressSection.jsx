@@ -14,7 +14,7 @@ export default function CheckoutAddressSection({ addresses, selectedId, onSelect
           </span>
           Delivery address
         </h2>
-        <button type="button" onClick={onAddNew} className="btn-outline btn-sm">
+        <button type="button" onClick={onAddNew} className="btn-outline btn-sm shrink-0 whitespace-nowrap">
           <Plus className="h-4 w-4" aria-hidden="true" /> Add new
         </button>
       </div>

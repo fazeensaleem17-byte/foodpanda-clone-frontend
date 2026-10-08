@@ -48,7 +48,7 @@ export default function OwnerMenuPage() {
     <div className="page max-w-5xl">
       <Link
         to="/owner"
-        className="inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
+        className="inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline max-lg:min-h-10"
       >
         <ChevronLeft className="h-4 w-4" aria-hidden="true" /> Dashboard
       </Link>
@@ -59,7 +59,7 @@ export default function OwnerMenuPage() {
             alt=""
             kind="logo"
             rounded="rounded-2xl"
-            className="h-16 w-16 shadow-sm"
+            className="h-16 w-16 shrink-0 shadow-sm"
           />
           <div>
             <div className="flex flex-wrap items-center gap-2">

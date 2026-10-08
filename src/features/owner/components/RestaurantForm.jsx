@@ -28,7 +28,7 @@ export default function RestaurantForm({ initial, onSubmit, onCancel }) {
           />
           {err('image')}
         </div>
-        <div>
+        <div className="max-sm:w-36">
           <ImageUpload
             label="Logo"
             kind="logo"
